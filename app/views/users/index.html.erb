@@ -1,0 +1,6 @@
+<h1>利用者一覧</h1>
+
+  <% @user.each{|num| %>
+  <p><%= num.name %></p>
+  <%= link_to '詳細', user_path(num.id)%>
+    <% } %>
