@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lend_date: 2014-07-02
+  return_date: 2014-07-02
+  flag: false
+  user_id: 
+  book_id: 
+
+two:
+  lend_date: 2014-07-02
+  return_date: 2014-07-02
+  flag: false
+  user_id: 
+  book_id: 

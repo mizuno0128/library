@@ -1,0 +1,6 @@
+<h1>書籍一覧</h1>
+
+  <% @books.each{|num| %>
+  <p><%= num.name %></p>
+  <%= link_to '詳細', book_path(num.id)%>
+    <% } %>
