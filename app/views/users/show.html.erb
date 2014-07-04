@@ -1,6 +1,10 @@
+<h1>利用者詳細</h1>
+
 <p><%= @user.name%></p>
 <p><%= @user.tell%></p>
 <p><%= @user.code%></p>
 <p><%= @user.address%></p>
 <p><%= @user.birthday%></p>
-<p><%= @user.password%></p>
+
+<%= link_to '一覧',users_path%>|<%= link_to '編集',edit_user_path%>
+

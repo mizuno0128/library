@@ -1,6 +1,17 @@
 <h1>書籍一覧</h1>
 
-  <% @books.each{|num| %>
-  <p><%= num.name %></p>
-  <%= link_to '詳細', book_path(num.id)%>
-    <% } %>
+<table>
+<th>タイトル</th><th>著者</th><th>出版社</th><th></th>
+<% @books.each{|num| %>
+<tr>
+  <td><%= num.name %></td>
+  <td><%= num.author %></td>
+  <td><%= num.company%></td>
+  <td><%= link_to '詳細', book_path(num.id)%></td>
+  <td><%= link_to '編集',edit_book_path(num.id)%></td>
+  <td><%= link_to '削除',book_path(num.id), method: :delete,data: {confirm: '本当に消去しますか？'} %></td>
+  </tr>
+  <% } %>
+</table>
+
+<%= link_to '新規登録',new_book_path %>
