@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+  skip_before_action :current_user?, only: [:new, :create]
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
 	if @user.save
-  	  redirect_to action: :index
+  	  redirect_to controller: :logins, action: :new
   	else
   	  render action: :new
   	end

@@ -8,6 +8,11 @@
 </head>
 <body>
 
+<% if current_user.present? %>
+<%= link_to 'ログアウト', {controller: :logins,action: :destroy}, method: :delete%>
+<% else %>
+<%= link_to 'ログイン', login_path %>
+<% end %>
 <%= yield %>
 
 </body>
