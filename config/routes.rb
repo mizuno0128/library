@@ -14,10 +14,18 @@ Testproject::Application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-    resources :books
+    resources :books do
+      resources :book_records, only:[:update, :create]
+    end
     resources :users
 
-    get 'book_records' => 'book_records#index'
+
+
+   get 'book_records' => 'book_records#index'
+    # get 'book_records' => 'book_records#new'
+    # post 'book_records' => 'book_records#create'
+    # put 'book_records' => 'book_records#update'
+    # patch 'book_records' => 'book_records#update'
 
   # Example resource route with options:
   #   resources :products do

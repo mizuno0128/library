@@ -6,6 +6,11 @@ class BooksController < ApplicationController
   end
 
   def show
+    # @book.id
+    # session[:user_id]
+    # Time.now
+    # 2.weeks.since
+    # false
   end
 
   def new

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703074338) do
+ActiveRecord::Schema.define(version: 20140707041716) do
 
   create_table "book_records", force: true do |t|
     t.date     "lend_date"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140703074338) do
     t.integer  "book_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "ex_return_date"
   end
 
   add_index "book_records", ["book_id"], name: "index_book_records_on_book_id"
