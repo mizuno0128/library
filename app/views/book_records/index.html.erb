@@ -1,3 +1,15 @@
 <h1>TOP</h1>
+
 <p><%= flash[:msg]%></p>
 <%= link_to '書籍一覧を表示する',books_path %>
+
+<table>
+	<th>タイトル</th><th>貸出日</th><th>返却期日</th>
+	<% @book_record.each{|num| %>
+		<tr>
+			<td><%= book_title(num.book_id) %></td>
+			<td><%= num.lend_date %></td>
+			<td><%= num.ex_return_date %></td>
+		</tr>
+	<% } %>
+</table>
