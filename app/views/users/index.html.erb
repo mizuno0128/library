@@ -5,16 +5,16 @@
 <th>電話番号</th>
 <th>住所</th>
 <th></th>
-<% @users.each{|num| %>
+<% @users.each do|user| %>
 <tr>
-  <td><%= num.name %></td>
-  <td><%= num.tell %></td>
-  <td><%= num.address %></td>
-  <td><%= link_to '詳細', user_path(num.id)%></td>
-  <td><%= link_to '編集',edit_user_path(num.id)%></td>
-  <td><%= link_to '削除',user_path(num.id), method: :delete,data: {confirm: '本当に消去しますか？'} %></td>
+  <td><%= user.name %></td>
+  <td><%= user.tell %></td>
+  <td><%= user.address %></td>
+  <td><%= link_to '詳細', user_path(user.id)%></td>
+  <td><%= link_to '編集',edit_user_path(user.id)%></td>
+  <td><%= link_to '削除',user_path(user.id), method: :delete,data: {confirm: '本当に消去しますか？'} %></td>
   </tr>
-  <% } %>
+  <% end %>
 </table>
 
 <%=  link_to '新規作成',new_user_path %>
