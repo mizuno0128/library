@@ -6,7 +6,7 @@
 <table>
 	<th>タイトル</th><th>貸出日</th><th>返却期日</th><th>返却日</th><th></th>
 	<% @book_record.each{|num| %>
-		<tr>
+		<tr <% if expire?(num.ex_return_date,num.return_date) %>style = "color:red;"<% end %>>
 			<td><%= book_title(num.book_id) %></td>
 			<td><%= num.lend_date %></td>
 			<td><%= num.ex_return_date %></td>
