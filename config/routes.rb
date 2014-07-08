@@ -5,6 +5,8 @@ Testproject::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  root 'book_records#index'
+
   # Example of regular route:
     get 'login' => 'logins#new'
     post 'login'=> 'logins#create'
