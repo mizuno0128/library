@@ -4,12 +4,14 @@
 <%= link_to '書籍一覧を表示する',books_path %>
 
 <table>
-	<th>タイトル</th><th>貸出日</th><th>返却期日</th>
+	<th>タイトル</th><th>貸出日</th><th>返却期日</th><th>返却日</th><th></th>
 	<% @book_record.each{|num| %>
 		<tr>
 			<td><%= book_title(num.book_id) %></td>
 			<td><%= num.lend_date %></td>
 			<td><%= num.ex_return_date %></td>
+			<td><%= num.return_date %></td>
+			<td><% if return_book?(num.return_date,num.flag) %><%= link_to '返却',book_book_record_path(num.book_id,num.id) ,method: :patch,data: {confirm: '返却してもいいですか？'} %><% end %></td>
 		</tr>
 	<% } %>
 </table>

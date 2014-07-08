@@ -17,4 +17,16 @@ class BookRecordsController < ApplicationController
       render controller: :books,action: :show
     end
   end
+
+  def update
+    #binding.pry
+    book_record = BookRecord.find(params[:id])
+    @book_record = BookRecord.where('user_id = ?',session[:user_id])
+    if book_record.update({"return_date" => Time.now, "flag" => true})
+      flash[:msg] = '書籍を返却しました。'
+      render action: :index
+    else
+      render action: :index
+    end
+  end
 end

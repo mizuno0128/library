@@ -7,7 +7,7 @@
 <p><%= @book.publish_date%></p>
 
 <% if lend? %> 
-<font colr=red>貸し出しできません。</font>
+<font color=red>貸し出しできません。</font>
 <% else %>
 <%= link_to '借りる',book_book_records_path(book_id: @book.id), method: :post %>
 <% end %>
