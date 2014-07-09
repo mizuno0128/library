@@ -1,6 +1,7 @@
 class BookRecordsController < ApplicationController
   def index
-    @book_record = BookRecord.where('user_id = ?',session[:user_id])
+    book_record = BookRecord.where('user_id = ?',session[:user_id])
+    @book_record = book_record.order("lend_date DESC")
   end
 
   def new
