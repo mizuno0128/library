@@ -8,6 +8,13 @@
 
 # coding: utf-8
 
+ActiveRecord::Base.connection.execute("DELETE FROM books;")
+ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name = 'books';")
+ActiveRecord::Base.connection.execute("DELETE FROM users;")
+ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name = 'users';")
+ActiveRecord::Base.connection.execute("DELETE FROM book_records;")
+ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name = 'book_records';")
+
 20.times do |no|
   p Book.create(:name => "タイトル #{no}",:author => "作者",:company => "大阪会社",:code => 123,:publish_date => "2014-01-01")
 end
