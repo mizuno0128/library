@@ -35,6 +35,8 @@ end
 group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'annotate', :git => 'https://github.com/ctran/annotate_models'
 end
 
 # Use ActiveModel has_secure_password

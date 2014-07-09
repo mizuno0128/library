@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/ctran/annotate_models
+  revision: 9634ea6e67851d4a9a4d0b89597a6a9d3fc4d1f4
+  specs:
+    annotate (2.6.5)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,6 +71,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    quiet_assets (1.0.3)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -119,11 +129,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate!
   better_errors
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
   pry-rails
+  quiet_assets
   rails (= 4.0.5)
   sass-rails (~> 4.0.2)
   sdoc

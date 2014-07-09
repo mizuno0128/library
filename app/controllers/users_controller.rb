@@ -52,9 +52,7 @@ end
 
   def check_admin
     #binding.pry
-    @user = User.find(session[:user_id])
-    if @user.admin == false
-      flash[:msg] = '管理者でないため表示できません。'
-      redirect_to controller: :book_records , action: :index
+    unless current_user.admin
+      redirect_to({controller: :book_records , action: :index },:flash => {:msg => '管理者でないため表示できません。'})
     end
   end
