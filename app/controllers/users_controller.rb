@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   skip_before_action :current_user?, only: [:new, :create]
+  before_action :check_admin, only: [:index]
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -48,3 +49,12 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   end
 end
+
+  def check_admin
+    #binding.pry
+    @user = User.find(session[:user_id])
+    if @user.admin == false
+      flash[:msg] = '管理者でないため表示できません。'
+      redirect_to controller: :book_records , action: :index
+    end
+  end

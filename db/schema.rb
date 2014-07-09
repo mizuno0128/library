@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707041716) do
+ActiveRecord::Schema.define(version: 20140709003101) do
 
   create_table "book_records", force: true do |t|
     t.date     "lend_date"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20140707041716) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password"
+    t.boolean  "admin",      default: false
   end
 
 end
