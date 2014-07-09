@@ -2,6 +2,6 @@
 
 <%= render 'form'%>
 
-<% if admin? %>
+<% if current_user.admin %>
 <%= link_to '一覧',users_path%>
 <% end %>
