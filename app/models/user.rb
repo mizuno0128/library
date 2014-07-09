@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
 
   validates :code,
     presence: true,
-    numericality: {allow_blank: true}
+    numericality: {allow_blank: true},
+    uniqueness: true
 
   validates :birthday,
     presence: true
