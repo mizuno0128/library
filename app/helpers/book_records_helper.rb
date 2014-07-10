@@ -9,9 +9,6 @@ module BookRecordsHelper
   end
 
   def expire?(date, r_date)
-    #binding.pry
-    if date <= Date.today && r_date == nil
-      return true
-    end 
+    date <= Date.today && r_date.nil? 
   end
 end

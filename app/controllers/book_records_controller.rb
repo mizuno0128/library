@@ -1,7 +1,6 @@
 class BookRecordsController < ApplicationController
   def index
-    book_record = BookRecord.where('user_id = ?',session[:user_id])
-    @book_record = book_record.order("lend_date DESC")
+    @book_record = BookRecord.where('user_id = ?',session[:user_id]).order("lend_date DESC")
   end
 
   def new
@@ -20,9 +19,8 @@ class BookRecordsController < ApplicationController
   end
 
   def update
-    #binding.pry
     book_record = BookRecord.find(params[:id])
-    @book_record = BookRecord.where('user_id = ?',session[:user_id])
+    @book_record = BookRecord.where('user_id = ?',session[:user_id]).order("lend_date DESC")
     if book_record.update({"return_date" => Time.now, "flag" => true})
       flash[:msg] = '書籍を返却しました。'
       render action: :index
