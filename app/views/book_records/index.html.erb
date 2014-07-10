@@ -6,12 +6,12 @@
 <table>
 	<th>タイトル</th><th>貸出日</th><th>返却期日</th><th>返却日</th><th></th>
 	<% @book_record.each do|record| %>
-		<tr <% if expire?(record.ex_return_date,record.return_date) %>style = "color:red;"<% end %>>
-			<td><%= book_title(record.book_id) %></td>
+		<tr <% if record.expire? %>style = "color:red;"<% end %>>
+			<td><%= record.book_title %></td>
 			<td><%= record.lend_date %></td>
 			<td><%= record.ex_return_date %></td>
 			<td><%= record.return_date %></td>
-			<td><% if return_book?(record.return_date,record.flag) %><%= link_to '返却',book_book_record_path(record.book_id,record.id) ,method: :patch,data: {confirm: '返却してもいいですか？'} %><% end %></td>
+			<td><% if record.return_book? %><%= link_to '返却',book_book_record_path(record.book_id,record.id) ,method: :patch,data: {confirm: '返却してもいいですか？'} %><% end %></td>
 		</tr>
 	<% end %>
 </table>

@@ -16,4 +16,17 @@
 class BookRecord < ActiveRecord::Base
   belongs_to :user
   belongs_to :book
+
+  def book_title
+    book = Book.find(id)
+    book.name
+  end
+
+  def return_book?
+    flag == false && return_date.nil?
+  end
+
+  def expire?
+    ex_return_date <= Date.today && return_date.nil?
+  end
 end

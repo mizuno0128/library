@@ -8,7 +8,6 @@ class LoginsController < ApplicationController
 	  #binding.pry
 	  users = User.where('code = ? AND password = ?',params["code"],params["password"])
 	  if users.present?
-	  	#TOP画面に遷移セッション情報入れる
 	  	user = users.first
 	  	session[:user_id] = user.id
 	  	redirect_to controller: :book_records, action: :index 
