@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :check_admin, only: [:index]
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @users = User.all
   end
@@ -47,12 +48,19 @@ class UsersController < ApplicationController
 
   def set_user
   	@user = User.find(params[:id])
+    check_user
   end
 end
 
   def check_admin
-    #binding.pry
     unless current_user.admin
       redirect_to({controller: :book_records , action: :index },:flash => {:msg => '管理者でないため表示できません。'})
+    end
+  end
+
+  def check_user
+    #binding.pry
+    unless current_user.id == @user.id || current_user.admin
+      redirect_to({controller: :book_records , action: :index },:flash => {:msg => '他のユーザの情報は表示できません。'})
     end
   end
